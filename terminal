@@ -1,0 +1,11 @@
+pyrcc5 resources.qrc -o resources_rc.py
+
+Fb_Whs_env\Scripts\activate
+
+deactivate
+
+pip freeze > requirements.txt
+
+pyinstaller --onefile --windowed --icon=logo_icon.ico --add-data "resources_rc.py;." --add-data ".env;." --add-data "resources.qrc;." --add-data "Fb_Whs.ui;." Fb_Whs.py
+
+python Fb_Whs.py
